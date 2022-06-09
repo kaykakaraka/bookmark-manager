@@ -1,5 +1,5 @@
 Bookmark Manager<p></p>
-<% @bookmarks.each do |heading, content| %>
-<a href=<%= heading %>><%= content %></a>
+<% @bookmarks.each do |row| %>
+<a href=<%= row['url'] %>><%= row['title'] %></a> <p></p>
 <% end %>
 <a href="/bookmarks/add">Add a bookmark</a>

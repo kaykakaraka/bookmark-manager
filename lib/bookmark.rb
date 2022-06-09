@@ -7,7 +7,7 @@ class Bookmark
     rs.map { |row| row['url'] }
   end
 
-  def create(url)
+  def self.create(url)
     controller = PG.connect :dbname => ENV['BOOKMARK_DATABASE']
     controller.exec "INSERT INTO bookmarks(url) VALUES('#{url}');"
   end

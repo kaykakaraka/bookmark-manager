@@ -12,8 +12,7 @@ RSpec.describe Bookmark do
 
   describe '.create' do
     it 'adds a bookmark to the database' do
-      bookmarks = Bookmark.new
-      bookmarks.create('http://stackoverflow.com')
+      Bookmark.create('http://stackoverflow.com')
       expect(Bookmark.all).to include('http://stackoverflow.com')
       expect(Bookmark.all).to include('http://www.makersacademy.com/')
     end

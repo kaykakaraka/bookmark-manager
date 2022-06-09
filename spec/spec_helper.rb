@@ -15,6 +15,7 @@
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   ENV['RACK_ENV'] = 'test'
+  ENV['BOOKMARK_DATABASE'] = 'bookmark_manager_test'
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
   require File.join(File.dirname(__FILE__), '..', 'app.rb')
@@ -23,6 +24,9 @@ RSpec.configure do |config|
   require 'capybara'
   require 'capybara/rspec'
   require 'rspec'
+
+# Require the helper files
+  require './spec/test_helpers'
 
 # Tell Capybara to talk to BookmarkManager
   Capybara.app = BookmarkManager

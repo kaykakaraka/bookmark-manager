@@ -2,8 +2,8 @@ require 'pg'
 
 class Bookmark
   def self.all
-      controller = PG.connect :dbname => "bookmark_manager"
-      rs = controller.exec "SELECT * FROM bookmarks;"
-      rs.map { |row| row['url'] }
+    controller = PG.connect :dbname => ENV['BOOKMARK_DATABASE']
+    rs = controller.exec "SELECT * FROM bookmarks;"
+    rs.map { |row| row['url'] }
   end
 end

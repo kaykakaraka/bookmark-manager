@@ -1,6 +1,5 @@
 Bookmark Manager<p></p>
-<% @maker = "http://www.makersacademy.com/" %>
-<% @destroy = 'http://www.destroyallsoftware.com' %>
-<a href=<%= @maker %>><%= @titles %></a>
-<a href=<%= @destroy %>><%= @titles %></a>
+<% @bookmarks.each do |heading, content| %>
+<a href=<%= heading %>><%= content %></a>
+<% end %>
 <a href="/bookmarks/add">Add a bookmark</a>

@@ -39,5 +39,13 @@ RSpec.describe Bookmark do
       add_google_url
       expect(Bookmark.all).to eq [{'url' => 'http://www.google.com/', 'title' => 'Google'}]
     end
+
+    it 'returns an array of two urls and titles' do
+      truncate_table
+      add_makers_url
+      add_google_url
+      expect(Bookmark.all).to eq [{'url' => 'http://www.makersacademy.com/', 'title' => 'Makers Academy'}, 
+                                  {'url' => 'http://www.google.com/', 'title' => 'Google'}]
+    end
   end
 end

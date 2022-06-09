@@ -8,11 +8,16 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/' do
-    'Bookmark Manager'
+    erb(:index)
+  end
+
+  get '/add' do
+    erb(:add)
   end
 
   get '/bookmarks' do
-    @bookmarks_array = Bookmark.all
+    @bookmarks = Bookmark.all
+    @bookmarks << params[:URL]
     erb(:bookmarks)
   end
   

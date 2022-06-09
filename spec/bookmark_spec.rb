@@ -9,4 +9,13 @@ RSpec.describe Bookmark do
       expect(bookmarks).to include('http://www.google.com/')
     end
   end
+
+  describe '.create' do
+    it 'adds a bookmark to the database' do
+      bookmarks = Bookmark.new
+      bookmarks.create('http://stackoverflow.com')
+      expect(Bookmark.all).to include('http://stackoverflow.com')
+      expect(Bookmark.all).to include('http://www.makersacademy.com/')
+    end
+  end
 end

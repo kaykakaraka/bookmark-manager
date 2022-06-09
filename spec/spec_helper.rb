@@ -28,6 +28,15 @@ RSpec.configure do |config|
 # Require the helper files
   require './spec/test_helpers'
 
+  RSpec.configure do |config|
+    config.before(:each) do
+      truncate_table
+      add_makers_url
+      add_destroyallsoftware_url
+      add_google_url
+    end
+  end
+
 # Tell Capybara to talk to BookmarkManager
   Capybara.app = BookmarkManager
   # rspec-expectations config goes here. You can use an alternate

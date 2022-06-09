@@ -26,4 +26,18 @@ RSpec.describe Bookmark do
       expect(titles).to include('Google')
     end
   end
+
+  describe '.all' do
+    it 'returns a single url from the database' do
+      truncate_table
+      add_makers_url
+      expect(Bookmark.all).to eq [{'url' => 'http://www.makersacademy.com/', 'title' => 'Makers Academy'}]
+    end
+
+    it 'returns a different url from the database' do
+      truncate_table
+      add_google_url
+      expect(Bookmark.all).to eq [{'url' => 'http://www.google.com/', 'title' => 'Google'}]
+    end
+  end
 end

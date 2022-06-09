@@ -9,6 +9,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks' do
     @bookmarks = Bookmark.url
+    @titles = Bookmark.title
     erb(:'bookmarks/index')
   end
 

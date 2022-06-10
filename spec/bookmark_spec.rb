@@ -31,21 +31,21 @@ RSpec.describe Bookmark do
     it 'returns a single url from the database' do
       truncate_table
       add_makers_url
-      expect(Bookmark.all).to eq [{'url' => 'http://www.makersacademy.com/', 'title' => 'Makers Academy'}]
+      expect(Bookmark.all).to eq [{ 'url' => 'http://www.makersacademy.com/', 'title' => 'Makers Academy' }] 
     end
 
     it 'returns a different url from the database' do
       truncate_table
       add_google_url
-      expect(Bookmark.all).to eq [{'url' => 'http://www.google.com/', 'title' => 'Google'}]
+      expect(Bookmark.all).to eq [{ 'url' => 'http://www.google.com/', 'title' => 'Google' }]
     end
 
     it 'returns an array of two urls and titles' do
       truncate_table
       add_makers_url
       add_google_url
-      expect(Bookmark.all).to eq [{'url' => 'http://www.makersacademy.com/', 'title' => 'Makers Academy'}, 
-                                  {'url' => 'http://www.google.com/', 'title' => 'Google'}]
+      expect(Bookmark.all).to eq [{ 'url' => 'http://www.makersacademy.com/', 'title' => 'Makers Academy' }, 
+                                  { 'url' => 'http://www.google.com/', 'title' => 'Google' }]
     end
   end
 end

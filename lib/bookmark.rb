@@ -22,9 +22,10 @@ class Bookmark
     controller = PG.connect :dbname => ENV['BOOKMARK_DATABASE']
     rs = controller.exec "SELECT * FROM bookmarks;"
     title_and_url = []
-    rs.each { |row| row_details = Hash["title" => row['title'], "url" => row['url']]
+    rs.each do |row| 
+      row_details = Hash["title" => row['title'], "url" => row['url']]
       title_and_url << row_details
-      }
+    end
     title_and_url
   end
 end

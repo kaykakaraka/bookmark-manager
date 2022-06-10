@@ -9,7 +9,9 @@ class Bookmark
 
   def self.create(url, title)
     controller = PG.connect :dbname => ENV['BOOKMARK_DATABASE']
-    controller.exec "INSERT INTO bookmarks(url, title) VALUES('#{url}', '#{title}');"
+    controller.exec_params( 
+      "INSERT INTO bookmarks(url, title) VALUES($1, $2);", [url, title]
+    )
   end
 
   def self.title
